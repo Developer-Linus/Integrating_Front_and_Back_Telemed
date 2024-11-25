@@ -1,0 +1,673 @@
+:root {
+    --primary-color: #16a085;
+    --secondary-color-dark: #444;
+    --secondary-color-light: #777;
+    --box-shadow-color: rgba(22, 100, 13, 0.2);
+    --text-shadow-color: rgba(22, 160, 133, 0.2);
+    --border-color: 0.2rem solid #16a085;
+    --warning-color: red;
+}
+
+/* Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+*html{
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+}
+
+body {
+    background-color: #f5f8fa;
+    color: var(--secondary-color-dark);
+    line-height: 1.6;
+}
+
+/* Header */
+header {
+    position: fixed;
+    z-index: 1000;
+    top: 0; 
+    left:0;
+    box-shadow: 0 2px 5px var(--box-shadow-color);
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #ffffff;
+    padding: 1rem 2rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+#book-appointment{
+    background-color: var(--secondary-color-dark);
+}
+#book-appointment:hover{
+    background-color: #444;
+    cursor: pointer;
+}
+#booking{
+    color:#c4d6eb;
+    font-size: 1rem;
+    font-weight: 700;
+}
+#booking:hover{
+    color:#c0c0c0;
+}
+.logo {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #2c7ecb;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: var(--secondary-color-dark);
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+nav ul li a:hover {
+    color: #2c7ecb;
+}
+
+/* Hero Section */
+.hero {
+    margin-top:80px;
+    background: linear-gradient(rgba(52, 143, 235, 1), rgba(52, 143, 235, 0.8)), url('./assets/images/doctors-attending-patients.jpeg') no-repeat center center/cover;
+    color: white;
+    text-align: center;
+    padding: 5rem 2rem;
+}
+
+.hero h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+}
+
+.hero button {
+    background-color: #2c7ecb;
+    border: none;
+    color: white;
+    padding: 0.8rem 2rem;
+    margin: 0 0.5rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.hero button:hover {
+    background-color: #1b6ec2;
+}
+
+/* About Section */
+#about {
+    background-color: #ffffff; /* White background for contrast */
+    padding: 4rem 2rem; /* Spacing around content */
+    margin: 2rem auto; /* Center the section with margins */
+    max-width: 800px; /* Limit width for readability */
+    box-shadow: 0 4px 12px var(--box-shadow-color); /* Subtle shadow */
+    border-radius: 8px; /* Smooth corners */
+    color: var(--secondary-color-dark); /* Consistent text color */
+    text-align: center; /* Center-align text */
+}
+
+#about h2 {
+    color: var(--primary-color); /* Primary color for heading */
+    font-size: 2rem; /* Slightly larger font size */
+    margin-bottom: 1rem; /* Spacing below the heading */
+    text-shadow: 1px 1px 2px var(--text-shadow-color); /* Subtle text shadow */
+}
+
+#about p {
+    color: var(--secondary-color-light); /* Softer color for paragraph */
+    font-size: 1.1rem; /* Standard text size */
+    line-height: 1.6; /* Improve readability */
+    margin: 0 auto; /* Center paragraph within max-width */
+    max-width: 700px; /* Limit width for readability */
+}
+
+
+/* Form Section */
+.form-section {
+    padding: 2rem;
+    background-color: #fff;
+    border-radius: 8px;
+    max-width: 600px;
+    margin: 6rem auto;
+    box-shadow: 0 4px 12px var(--box-shadow-color);
+}
+
+.form-section h2, #user-information h2 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    color: #2c7ecb;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+.form-group input, .form-group select, .form-group textarea {
+    width: 100%;
+    padding: 0.8rem;
+    border: var(--border-color);
+    border-radius: 5px;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+.form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+    border-color: #2c7ecb;
+}
+
+.form-group button {
+    display: block;
+    width: 100%;
+    padding: 0.8rem;
+    background-color: #2c7ecb;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.form-group button:hover {
+    background-color: #1b6ec2;
+}
+
+
+#user-information{
+    max-width: 600px;
+    margin: 20px auto;
+    line-height: 2.8;
+}
+
+#message{
+    text-align: center;
+}
+
+span{
+    margin: 8px;
+}
+
+/* Features Section */
+.features {
+    background-color: #f5f8fa;
+    padding: 0 2rem;
+    text-align: center;
+}
+
+.features h2 {
+    margin-bottom: 2rem;
+    color: var(--secondary-color-dark);
+}
+
+.features-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.feature {
+    background-color: #ffffff;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    max-width: 350px;
+    flex: 1 1 33.33%;
+    margin: 1rem;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.feature:hover {
+    background-color: #e2eaf3;
+    transform: scale(1.05); /* Slightly increase the size */
+}
+
+.feature h3 {
+    margin-bottom: 1rem;
+    color: #448bcd;
+}
+
+/* Map Section */
+#map-section {
+    margin: 20px auto;
+    text-align: center;
+    max-width: 800px;
+    height: 450px;
+    width: 100%;
+}
+
+#map-section iframe {
+    width: 80%; /* Adjust based on layout */
+    border: var(--border-color);
+}
+
+/* Consultation */
+.consultations {
+    margin: 3rem auto;
+    background-color: #ffffff;
+    text-align: center;
+    max-width: 600px;
+    padding: 20px 8px;
+    line-height: 2.8;
+}
+
+/* Testimonials */
+.testimonials {
+    background-color: #ffffff;
+    padding: 4rem 2rem;
+    text-align: center;
+}
+
+.testimonials h2 {
+    margin-bottom: 2rem;
+    color: var(--secondary-color-dark);
+}
+
+.testimonial {
+    background-color: #f5f8fa;
+    padding: 1.5rem;
+    border-radius: 8px;
+    max-width: 500px;
+    margin: 1rem auto;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.testimonial p {
+    font-style: italic;
+}
+
+.testimonial cite {
+    display: block;
+    margin-top: 1rem;
+    color: var(--secondary-color-light);
+}
+
+/* FAQs Section */
+.faqs {
+    padding: 4rem 2rem;
+}
+
+.faqs h2 {
+    margin-bottom: 2rem;
+    color: var(--secondary-color-dark);
+}
+
+.faq h3 {
+    color: #2c7ecb;
+    margin-bottom: 0.5rem;
+}
+
+/* General button styles */
+button {
+    background-color: var(--primary-color);
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 10px 0;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+#regBtn {
+    background-color: #0066cc;
+}
+
+#regBtn:hover {
+    background-color: #0056b3;
+}
+
+#logoutButton {
+    background-color: #dc3545;
+}
+
+#logoutButton:hover {
+    background-color: #c82333;
+}
+
+button:disabled {
+    background-color: #c0c0c0;
+    cursor: not-allowed;
+}
+#deleteDocButton:hover{
+    background-color: var(--warning-color);
+}
+
+/* Privacy Policy Section */
+#privacy-policy {
+    background-color: #ffffff; /* White background for readability */
+    padding: 4rem 2rem; /* Padding for spacing */
+    margin: 8rem auto; /* Centering and separation from other content */
+    max-width: 800px; /* Limit width for readability */
+    box-shadow: 0 4px 12px var(--box-shadow-color); /* Subtle shadow for focus */
+    border-radius: 8px; /* Rounded corners for a modern look */
+    color: var(--secondary-color-dark); /* Consistent text color */
+    text-align: left; /* Align text to the left for formal tone */
+}
+
+#privacy-policy h2 {
+    color: var(--primary-color); /* Highlight heading with primary color */
+    font-size: 2rem; /* Larger heading for emphasis */
+    margin-bottom: 1rem; /* Space below heading */
+    text-align: center; /* Center-align heading */
+    text-shadow: 1px 1px 2px var(--text-shadow-color); /* Soft shadow */
+}
+
+#privacy-policy p {
+    color: var(--secondary-color-dark); /* Consistent color */
+    font-size: 1.1rem; /* Slightly larger text for readability */
+    margin-bottom: 1.5rem; /* Space below paragraph */
+    line-height: 1.6; /* Improve readability */
+}
+
+#privacy-policy ul {
+    list-style-type: disc; /* Bullet points for clarity */
+    padding-left: 1.5rem; /* Indent list */
+    color: var(--secondary-color-dark); /* Consistent color for text */
+}
+
+#privacy-policy li {
+    margin-bottom: 1rem; /* Space between list items */
+    line-height: 1.5; /* Line height for readability */
+}
+
+#privacy-policy strong {
+    color: var(--primary-color); /* Highlight key terms */
+}
+
+/* Terms of Service Section */
+#terms-of-service {
+    background-color: #ffffff; /* White background for readability */
+    padding: 4rem 2rem; /* Padding for spacing */
+    margin: 8rem auto; /* Centering and separation from other content */
+    max-width: 800px; /* Limit width for readability */
+    box-shadow: 0 4px 12px var(--box-shadow-color); /* Subtle shadow for focus */
+    border-radius: 8px; /* Rounded corners for a modern look */
+    color: var(--secondary-color-dark); /* Consistent text color */
+    text-align: left; /* Align text to the left for formal tone */
+}
+
+#terms-of-service h2 {
+    color: var(--primary-color); /* Highlight heading with primary color */
+    font-size: 2rem; /* Larger heading for emphasis */
+    margin-bottom: 1rem; /* Space below heading */
+    text-align: center; /* Center-align heading */
+    text-shadow: 1px 1px 2px var(--text-shadow-color); /* Soft shadow */
+}
+
+#terms-of-service p {
+    color: var(--secondary-color-dark); /* Consistent color */
+    font-size: 1.1rem; /* Slightly larger text for readability */
+    margin-bottom: 1.5rem; /* Space below paragraph */
+    line-height: 1.6; /* Improve readability */
+}
+
+#terms-of-service ul {
+    list-style-type: disc; /* Bullet points for clarity */
+    padding-left: 1.5rem; /* Indent list */
+    color: var(--secondary-color-dark); /* Consistent color for text */
+}
+
+#terms-of-service li {
+    margin-bottom: 1rem; /* Space between list items */
+    line-height: 1.5; /* Line height for readability */
+}
+
+#terms-of-service strong {
+    color: var(--primary-color); /* Highlight key terms */
+}
+
+#terms-of-service a {
+    color: #2c7ecb; /* Link color */
+    text-decoration: underline; /* Underlined links */
+}
+
+/* Footer */
+footer {
+    background-color: #2c7ecb; /* Footer background color */
+    color: white; /* Footer text color */
+    padding: 2rem 1rem; /* Padding for the footer */
+    text-align: center; /* Center align the text */
+}
+
+footer .contact-info, footer .legal, footer .quick-links {
+    margin-bottom: 1rem; /* Margin for spacing */
+}
+
+footer .social-media-links {
+    margin-top: 0.5rem; /* Spacing above social media links */
+}
+
+footer a {
+    color: white; /* Link color */
+    text-decoration: underline; /* Underlined links */
+    margin: 0 0.5rem; /* Horizontal spacing between links */
+}
+
+footer .legal a, footer .quick-links a {
+    display: inline-block; /* Makes links appear in a block format */
+    margin: 0 0.5rem; /* Horizontal margin between links */
+}
+
+footer h4 {
+    margin-bottom: 0.5rem; /* Spacing below headings */
+}
+
+footer .quick-links ul {
+    list-style: none; /* Remove bullet points */
+    padding: 0; /* Remove default padding */
+}
+
+footer .quick-links li {
+    margin-bottom: 0.5rem; /* Spacing between list items */
+}
+
+.fa {
+    color: #dc3545; /* Font Awesome icon color */
+    margin-bottom: 4px; /* Margin below icons */
+    font-size: 1.5rem; /* Adjust icon size */
+}
+
+footer .social-media-links a {
+    margin: 0 0.5rem; /* Margin for social media icons */
+    font-size: 1.5rem; /* Size of social media icons */
+}
+
+footer .social-media-links a:hover {
+    color: #ffcc00; /* Change color on hover */
+}
+
+#userSection{
+    margin-top: 8rem;
+}
+
+/* Admin Dashboard Styles */
+#dashboardSection{
+    margin-top: 4rem;
+}
+a {
+    text-decoration: none;
+    color: inherit;
+}
+.admin-items{
+    list-style: none;
+}
+.side-menu{
+    position: fixed;
+    background: var(--secondary-color-dark);
+    width: 22vw;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+.side-menu .brand-name{
+    margin-top: 20px;
+    height: 10vh;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.side-menu li{
+    font-size: 24px;
+    padding: 10px 28px;
+    color: white;
+    display: flex;
+    align-items: center;
+}
+.side-menu li:hover{
+    background: #f5f8fa;
+    color: var(--primary-color);
+}
+.main-content{
+    margin-top: 6rem;
+    margin-left: 25vw;
+}
+.main-content h1{
+    text-align: center;
+
+}
+#doctor-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.doctor-card {
+    background-color: #ECF0F1;
+    border-radius: 8px;
+    padding: 20px;
+    width: 250px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.doctor-card h3 {
+    margin-top: 0;
+}
+
+.doctor-card p {
+    margin: 5px 0;
+}
+
+.patients-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.patients-table th, .patients-table td {
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+.patients-table th {
+    background-color: #f4f4f4;
+    font-weight: bold;
+}
+
+.patients-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.appointments-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.appointments-table th, .appointments-table td {
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+.appointments-table th {
+    background-color: #f4f4f4;
+    font-weight: bold;
+}
+
+.appointments-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+#patientsSection{
+    margin: 20 auto;
+}
+
+/* Responsiveness */
+
+/* Small Devices (480px and below) */
+@media (max-width: 480px) {
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    nav ul {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .hero h1 {
+        font-size: 2rem;
+    }
+
+    .features-container {
+        flex-direction: column;
+    }
+
+    .form-section {
+        padding: 1.5rem;
+    }
+}
+
+/* Medium Devices (768px and below) */
+@media (max-width: 768px) {
+    nav ul {
+        gap: 1rem;
+    }
+
+    .hero h1 {
+        font-size: 2.2rem;
+    }
+
+    .features-container {
+        flex-direction: column;
+    }
+
+    .testimonial {
+        max-width: 90%;
+    }
+}

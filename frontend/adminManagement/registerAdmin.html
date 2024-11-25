@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Registration</title>
+  <link rel="stylesheet" href="../styles.css"> <!-- Link to your CSS file -->
+</head>
+<body>
+  <!-- Admin Registration Section -->
+  <section id="registerAdm" class="form-section">
+    <h2>Admin Registration</h2>
+    <form id="registerAdmin">
+      <div class="form-group">
+        <label for="adminUsername">Username:</label>
+        <input type="text" id="adminUsername" name="adminUsername" required placeholder="Enter your username">
+      </div>
+      <div class="form-group">
+        <label for="adminPassword">Password:</label>
+        <input type="password" id="adminPassword" name="adminPassword" required minlength="6" placeholder="Enter a strong password">
+      </div>
+      <div class="form-group">
+        <label for="adminConfirmPassword">Confirm Password:</label>
+        <input type="password" id="adminConfirmPassword" name="adminConfirmPassword" required minlength="6" placeholder="Re-enter your password">
+        <small id="passwordError" style="color: red; display: none;">Passwords do not match.</small>
+      </div>
+      <div class="form-group">
+        <label for="adminRole">Role:</label>
+        <select id="adminRole" name="adminRole" required>
+          <option value="">Select Role</option>
+          <option value="admin">Admin</option>
+          <option value="superadmin">Superadmin</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label class="terms-label" for="adminTerms">
+          <input type="checkbox" id="adminTerms" name="adminTerms" required> I accept the <a href="#">terms and conditions</a>
+        </label>
+      </div>
+      <button type="submit" id="adminRegBtn">Register as Admin</button>
+    </form>
+    <div id = "message" style = "display: none"></div> <!--Use for displaying messages.-->
+  </section>
+
+  <script src="../scripts.js"></script> <!-- Link to your JavaScript file -->
+</body>
+</html>

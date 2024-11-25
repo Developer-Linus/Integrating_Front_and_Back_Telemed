@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TeleMed - Your Virtual Healthcare Platform</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+
+    <!-- Header and Navigation -->
+    <header>
+        <div class="logo">TeleMed</div>
+        <button id = "book-appointment" onclick="checkLoginAndBook()"><span id = 'booking'>Book Appointment</span></button>
+        <nav>
+            <ul>
+                <li><a href="./index.html" aria-label="Home">Home</a></li>
+                <li><a href="#about" aria-label="About Us">About Us</a></li>
+                <li><a href="#services" aria-label="Services">Services</a></li>
+                <li><a href="#contact" aria-label="Contact">Contact</a></li>
+                <li><a href="#login" aria-label="Login/Register">Login/Register</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!--Hero Section -->
+        <section id="home" class="hero">
+            <h1>Welcome to TeleMed</h1>
+            <p>Your virtual healthcare platform.</p>
+            <div class="button-container">
+                <button onclick="location.href='./public/login.html'">Login</button>
+                <button onclick="location.href= './public/registerForm.html'">Register</button>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" aria-labelledby="about-heading">
+            <h2 id="about-heading">About TeleMed</h2>
+            <p>TeleMed is a platform that connects patients to healthcare providers online. Our goal is to make healthcare easy to reach, especially for those in remote areas. With TeleMed, you can find doctors, book appointments, and have virtual consultations, all from your device.</p>
+        </section>       
+         
+        <!-- Features Section-->
+        <section class="features">
+            <h2>What We Offer</h2>
+            <div class="features-container">
+                <div class="feature">
+                    <i class="fa fa-lock fa-2x"></i>
+                    <h3>User Authentication</h3>
+                    <p>Secure login and role-based access for patients and doctors.</p>
+                </div>
+                <div class="feature">
+                    <i class="fa fa-map-marker-alt fa-2x"></i>
+                    <h3>Location-Based Services</h3>
+                    <p>Find nearby health centers with our integrated locator. Access Google Maps to view services around you.</p>
+                    <button onclick="showMap()">Find Health Centers</button>
+                </div>
+                <div class="feature">
+                    <i class="fa fa-clock fa-2x"></i>
+                    <h3>Appointment Booking</h3>
+                    <p>Easy scheduling and management of appointments.</p>
+                </div>
+            </div>
+        </section>
+    </section>
+    <!-- Google Maps Section (Initially Hidden) -->
+     <section id="map-section" style="display: none;">
+        <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.409896156116!2d37.26374637324992!3d-1.5224413953898692!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f87323d87b77d%3A0x7e5675d849485934!2sMachakos%20Level%205%20Hospital!5e0!3m2!1sen!2ske!4v1730013574055!5m2!1sen!2ske" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+        width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy">
+        </iframe>
+    </section>
+
+        <!-- Call-to-Action for Consultations -->
+        <section class="consultations">
+            <h2>Need to Speak to a Doctor?</h2>
+            <button onclick="location.href='./public/book.html'">Schedule a Consultation</button>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section class="testimonials">
+            <h2>What Our Users Say</h2>
+            <div class="testimonial">
+                <p>"TeleMed has transformed my healthcare experience!"</p>
+                <cite>- Jane Doe</cite>
+            </div>
+        </section>
+
+        <!-- FAQs Section -->
+        <section class="faqs">
+            <h2>Frequently Asked Questions</h2>
+            <div class="faq">
+                <h3>How do I book an appointment?</h3>
+                <p>Click on 'Schedule a Consultation' above to get started.</p>
+            </div>
+            <div class="faq">
+                <h3>Is my information secure?</h3>
+                <p>Yes, we prioritize your privacy and use encryption to keep your data safe.</p>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+<footer>
+    <div class="contact-info">
+        <p>Contact us: info@telemed.com</p>
+        <p>Follow us on social media:</p>
+        <div class="social-media-links">
+            <a href="#" aria-label="Facebook"><i class="fab fa-facebook-square"></i></a>
+            <a href="#" aria-label="Twitter"><i class="fab fa-twitter-square"></i></a>
+            <a href="#" aria-label="Instagram"><i class="fab fa-instagram-square"></i></a>
+            <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+        </div>
+    </div>
+    <div class="legal">
+        <a href="./public/privacy.html">Privacy Policy</a>
+        <a href="./public/terms.html">Terms of Service</a>
+        <a href="#help">Help Center</a>
+        <a href="#feedback">Give Feedback</a>
+        <a href="#careers">Careers</a>
+    </div>
+    <div class="quick-links">
+        <h4>Quick Links</h4>
+        <ul>
+            <li><a href="#services">Our Services</a></li>
+            <li><a href="#doctors">Find a Doctor</a></li>
+            <li><a href="#appointments">Manage Appointments</a></li>
+            <li><a href="#faq">FAQs</a></li>
+        </ul>
+    </div>
+</footer>
+
+    <script src="scripts.js"></script>
+    <script src="validation/validationInteractivity.js"></script>
+</body>
+</html>

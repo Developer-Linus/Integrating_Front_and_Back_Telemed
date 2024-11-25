@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TeleMed - Your Virtual Healthcare Platform</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <header>
+        <div class="logo">TeleMed</div>
+        <nav>
+            <ul>
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="#login">Login/Register</a></li>
+            </ul>
+        </nav>
+    </header>
+   <!--Login Section-->
+   <section id="login" class="form-section">
+    <h2>Login</h2>
+    <form id="loginForm">
+        <div class="form-group">
+            <label for="identifier">Email/Username:</label>
+            <input type="text" id="loginIdentifier" name="identifier" required>
+        </div>
+        <div class="form-group">
+            <label for="loginPassword">Password:</label>
+            <input type="password" id="loginPassword" name="password" required minlength="6">
+        </div>
+        <button type="submit">Login</button>
+        <p>Don't have an account? <a href="./registerForm.html">Register Here.</a></p>
+    </form>
+</section>
+        <section id = "userInfo">
+            <div id = "userSection" style = "display: none">
+                <div id = "user-information">
+                    <h2>User Information</h2>
+                    <p><strong>First Name:</strong><span id = 'firstName'></span></p>
+                    <p><strong>Last Name:</strong><span id = 'lastName'></span></p>
+                    <p><strong>Email:</strong><span id = 'email'></span></p>
+                    <p><strong>Phone:</strong><span id = 'phone'></span></p>
+                    <p><strong>Date of Birth:</strong><span id = 'birthDate'></span></p>
+                    <p><strong>Gender:</strong><span id = 'gender'></span></p>
+                    <p><strong>Address:</strong><span id = 'address'></span></p>
+                </div>
+                <section id = "edit" class = "form-section">
+                <h2>Edit User Information</h2>
+                <form id="editForm">
+                    <div class="form-group">
+                        <label for="editFirstName">First Name:</label>
+                        <input type="text" id="editFirstName" name="editFirstName">
+                    </div>
+                    <div class="form-group">
+                        <label for="editLastName">Last Name:</label>
+                        <input type="text" id="editLastName" name="editLastName">
+                    </div>
+                    <div class="form-group">
+                        <label for="editPhone">Phone:</label>
+                        <input type="tel" id="editPhone" name="editPhone" pattern="[0-9]{10}">
+                    </div>
+                    <div class="form-group">
+                        <label for="editDateOfBirth">Date of Birth:</label>
+                        <input type="date" id="editDateOfBirth" name="editDateOfBirth">
+                    </div>
+                    <div class="form-group">
+                        <label for="editGender">Gender:</label>
+                        <select id="editGender" name="editGender">
+                            <option value="">Select</option>
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="editAddress">Address:</label>
+                        <textarea id="editAddress" name="editAddress"></textarea>
+                    </div>
+                    <button type="submit">Update</button>
+                    <button type="reset">Cancel</button>
+                </form>
+                <button id = "logoutButton">Logout</button>
+                <button id = "deleteAccountButton" style = "display: block">Delete Account</button>
+            </div>
+            </section>
+            <div id = "message" style = "display: none"></div> <!--Use for displaying messages.-->
+        </section>
+
+        <!-- Admin Dashboard Section -->
+    <section id="dashboardSection" style = "display: none">
+        <div class = "side-menu">
+        <div class=" brand-name">
+            <h1>Admin Dashboard</h1>
+        </div>
+        <ul class = "admin-list">
+            <li><a href="#viewPatients" data-content="viewPatients">View Patients</a></li>
+            <li><a href="#manageDoctors" data-content="manageDoctors">Manage Doctors</a></li>
+            <li><a href="#appointments" data-content="viewAppointments">View Appointments</a></li>
+        </ul>
+        </div>
+        <div class="main-content" id="main-content">
+            <div id = "adminHero"><h1>Welcome, Admin</h1>
+            <div class="content">
+                <p>Select an option from the sidebar to manage the system.</p>
+            </div>
+            
+            </div>
+        <!-- View Patients Section -->
+        <section id="patientsSection" style="display: none;">
+            <h3>View Patients</h3>
+            <div id="patient-list">
+        <!-- Patient details will be dynamically inserted here using JavaScript -->
+</section>
+
+      <!-- Manage Doctors Section -->
+      <section id="doctorsSection" style="display: none;">
+            <h3>Manage Doctors</h3>
+            <!-- Section to Display Available Doctors -->
+            <section id="doctors-section" class="content-section">
+                <h2>Available Doctors</h2>
+                <div id="doctor-list">
+                <!-- Doctor cards will be inserted here dynamically by JavaScript -->
+                </div>
+            </section>
+            <!-- Form for Editing Doctor -->
+            <div class="form-section">
+                <h2>Edit Doctors</h2>
+                <form id="updateDoctorForm">
+                    <div class="form-group">
+                        <label for="updateDocId">Doctor ID:</label>
+                        <input type="number" name="updateDocId" id = "updateDocId" placeholder="Enter doctor ID" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="updateFirstName">First Name:</label>
+                        <input type="text" id="updateFirstName" name="updateFirstName" placeholder="First Name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="updateLastName">Last Name:</label>
+                        <input type="text" id="updateLastName" name="updateLastName" placeholder="Last Name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="updateSpecialization">Specialization:</label>
+                        <input type="text" id="updateSpecialization" name="updateSpecialization" placeholder="Specialization" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="updateEmail">Email:</label>
+                        <input type="email" id="updateEmail" name="updateEmail" placeholder="Email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="updatePhone">Phone:</label>
+                        <input type="text" id="updatePhone" name="updatePhone" placeholder="Phone"> 
+                    </div>
+                    <div class="form-group">
+                        <label for="updateSchedule">Schedule:</label>
+                        <textarea name="updateSchedule" id="updateSchedule" placeholder="Schedule (JSON format)" required></textarea>
+                    </div>
+                    <button id = "updateDocBtn" type="submit" name="action" value="update">Update Doctor</button>
+                    <div id = "message" style = "display: none"></div> <!--Use for displaying messages.-->
+          </form>
+
+        </div>
+
+           <!-- Form for Adding a Doctor -->
+        <div class="form-section">
+            <h2>Add Doctor</h2>
+            <form id="addDoctorForm">
+              <div class="form-group">
+                  <label for="addFirstName">First Name:</label>
+                  <input type="text" id = "addFirstName" name="addFirstName" placeholder="First Name" required>
+              </div>
+              <div class="form-group">
+                  <label for="addLastName">Last Name:</label>
+                  <input type="text" id = "addLastName" name="addLastName" placeholder="Last Name" required>
+              </div>
+              <div class="form-group">
+                  <label for="addSpecialization">Specialization:</label>
+                  <input type="text" id="addSpecialization" name="addSpecialization" placeholder="Specialization" required>
+              </div>
+              <div class="form-group">
+                  <label for="addEmail">Email:</label>
+                  <input type="email" id="addEmail" name="addEmail" placeholder="Email" required>
+              </div>
+              <div class="form-group">
+                  <label for="addPhone">Phone:</label>
+                  <input type="text" id="addPhone" name="addPhone" placeholder="Phone"> 
+              </div>
+              <div class="form-group">
+                  <label for="addSchedule">Schedule:</label>
+                  <textarea name="addSchedule" id="addSchedule" placeholder="Schedule (JSON format)" required></textarea>
+              </div>
+              <button id = "addDocBtn" type="submit">Add Doctor</button>
+            </form>
+            <div id = "message" style = "display: none"></div> <!--Use for displaying messages.-->
+            </div>
+            <div class="form-section">
+                <h2>Delete a Doctor</h2>
+                <form id="deleteDoctorForm">
+                    <div class="form-group">
+                        <label for="docId">Doctor ID:</label>
+                        <input type="number" name="docId" id = "docId" placeholder="Enter doctor's id to delete." required>
+                    </div>
+                    <button id = "deleteDocBtn" type="submit" name="action" value="delete">Delete Doctor</button>
+          </form>
+          <div id = "message" style = "display: none"></div> <!--Use for displaying messages.-->
+        </div>
+      </section>
+  
+      <!-- Appointments Section -->
+      <section id="appointmentsSection" class="section" style="display: none;">
+        <h3>Appointments</h3>
+        <div id="appointmentsList">
+            <table id="appointmentsTable">
+                <tbody>
+                    <!-- Rows will be inserted here -->
+                </tbody>
+            </table>
+          <!-- Appointments will be displayed here -->
+        </div>
+      </section>
+</section>
+        <script src="../scripts.js"></script>
+    </body>
+</html>

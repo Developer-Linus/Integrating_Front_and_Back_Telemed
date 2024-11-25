@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TeleMed - Your Virtual Healthcare Platform</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <header>
+        <div class="logo">TeleMed</div>
+        <nav>
+            <ul>
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="#login">Login/Register</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Appointment Booking Form -->
+    <section id="booking-form" class="form-section">
+        <h2>Schedule an Appointment</h2>
+        <form id="appointmentForm">
+            <div class="form-group">
+                <label for="doctorId">Doctor:</label>
+                <select id="doctorId" name="doctorId" required onchange="fetchAvailableSlots()">
+                    <option value="">Select Doctor</option>
+                    <!-- Doctor options will be populated here -->
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="appointmentDate">Appointment Date:</label>
+                <input type="date" id="appointmentDate" name="appointmentDate" required>
+            </div>
+            <div class="form-group">
+                <label for="appointmentTime">Appointment Time:</label>
+                <select id="appointmentTime" name="appointmentTime" required>
+                    <option value="">Select Time</option>
+                    <!-- Appointment times will be populated here -->
+                </select>
+            </div>
+            <button type="submit">Book Appointment</button>
+        </form>
+    </section>
+
+    <!-- List Appointments Section -->
+    <section id="appointments-list" class="form-section">
+        <h2>Your Appointments</h2>
+        <table id="appointmentsTable">
+            <thead>
+                <tr>
+                    <th>Appointment ID</th>
+                    <th>Doctor ID</th>
+                    <th>Date</th>
+                    <th>Time</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Appointments will be populated here -->
+            </tbody>
+        </table>
+    </section>
+
+    <!-- Update Appointment Section -->
+    <section id="update-appointment" class="form-section">
+        <h2>Update or Cancel Appointment</h2>
+        <form id="updateForm">
+            <div class="form-group">
+                <label for="appointmentId">Appointment ID:</label>
+                <input type="number" id="appointmentId" name="appointmentId" required>
+            </div>
+            <div class="form-group">
+                <label for="updateDate">New Appointment Date:</label>
+                <input type="date" id="updateDate" name="updateDate">
+            </div>
+            <div class="form-group">
+                <label for="updateTime">New Appointment Time:</label>
+                <input type="time" id="updateTime" name="updateTime">
+            </div>
+            <div class="form-group">
+                <label for="updateStatus">Status:</label>
+                <select id="updateStatus" name="status">
+                    <option value="">Select Status</option>
+                    <option value="scheduled">Scheduled</option>
+                    <option value="completed">Completed</option>
+                    <option value="canceled">Canceled</option>
+                </select>
+            </div>
+            <button type="submit">Update Appointment</button>
+        </form>
+    </section>
+
+    <script src="../scripts.js"></script>
+</body>
+</html>

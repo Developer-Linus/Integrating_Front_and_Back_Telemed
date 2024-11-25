@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TeleMed - Your Virtual Healthcare Platform</title>
+    <link rel="stylesheet" href="../styles.css">
+
+</head>
+<body>
+    <header>
+        <div class="logo">TeleMed</div>
+        <nav>
+            <ul>
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="#login">Login/Register</a></li>
+            </ul>
+        </nav>
+    </header>
+    <body>
+    <!--Registration Section-->
+    <section id="register" class="form-section">
+        <h2>Register</h2>
+        <form id="registerForm">
+            <div class="form-group">
+                <label for="regFirstName">First Name:</label>
+                <input type="text" id="regFirstName" name="regFirstName" required>
+            </div>
+            <div class="form-group">
+                <label for="regLastName">Last Name:</label>
+                <input type="text" id="regLastName" name="regLastName" required>
+            </div>
+            <div class="form-group">
+                <label for="regEmail">Email:</label>
+                <input type="email" id="regEmail" name="regEmail" required>
+            </div>
+            <div class="form-group">
+                <label for="regPassword">Password:</label>
+                <input type="password" id="regPassword" name="regPassword" required minlength="6">
+            </div>
+            <div class="form-group">
+                <label for="regConfirmPassword">Confirm Password:</label>
+                <input type="password" id="regConfirmPassword" name="regConfirmPassword" required minlength="6">
+                <small id="passwordError" style="color: red; display: none;">Passwords do not match.</small>
+            </div>
+            <div class="form-group">
+                <label for="regPhone">Phone:</label>
+                <input type="tel" id="regPhone" name="regPhone" required pattern="[0-9]{10}">
+            </div>
+            <div class="form-group">
+                <label for="regDateOfBirth">Date of Birth:</label>
+                <input type="date" id="regDateOfBirth" name="regDateOfBirth" required>
+            </div>
+            <div class="form-group">
+                <label for="regGender">Gender:</label>
+                <select id="regGender" name="regGender" required>
+                    <option value="">Select</option>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                    <option value="other">Other</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="regAddress">Address:</label>
+                <textarea id="regAddress" name="regAddress" required></textarea>
+            </div>
+            <div class="form-group">
+                <label class = "terms-label" for = "terms">
+                    <input type="checkbox" id="terms" name="terms" required> I accept the <a href="#">terms and conditions</a>
+                </label>
+            </div>
+            <button type="submit" id="regBtn">Register</button>
+            <p><a href="./login.html">Login</a> to your newly created account.</p>
+        </form>
+        <div id = "message" style = "display: none"></div> <!--Use for displaying messages.-->
+    </section>
+     <!-- Footer -->
+     <footer>
+        <div class="contact-info">
+            <p>Contact us: info@telemed.com</p>
+            <p>Follow us on social media:</p>
+            <div class="social-media-links">
+                <a href="#" aria-label="Facebook"><i class="fab fa-facebook-square"></i></a>
+                <a href="#" aria-label="Twitter"><i class="fab fa-twitter-square"></i></a>
+                <a href="#" aria-label="Instagram"><i class="fab fa-instagram-square"></i></a>
+                <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+            </div>
+        </div>
+        <div class="legal">
+            <a href="./privacy.html">Privacy Policy</a>
+            <a href="./terms.html">Terms of Service</a>
+            <a href="#help">Help Center</a>
+            <a href="#feedback">Give Feedback</a>
+        </div>
+        <div class="quick-links">
+            <h4>Quick Links</h4>
+            <ul>
+                <li><a href="#services">Our Services</a></li>
+                <li><a href="#doctors">Find a Doctor</a></li>
+                <li><a href="#appointments">Manage Appointments</a></li>
+                <li><a href="#faq">FAQs</a></li>
+            </ul>
+        </div>
+    </footer>
+    <script src="../scripts.js"></script>
+    <script src="../validation/validationInteractivity.js"></script>
+    </body>
+</html>
