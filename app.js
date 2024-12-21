@@ -18,7 +18,7 @@ const authRoutes = require('./router/auth');
 const app = express();
 
 // Set the port for the server
-const port = process.env.PORT || 4500;
+const port = process.env.PORT || 3306;
 
 // Middleware to parse incoming JSON requests
 app.use(express.json());

@@ -13,7 +13,7 @@ exports.registerUser = async (req, res)=>{
         }
         const { firstName, lastName, email, password, phone, dateOfBirth, gender, address} = req.body;
         // Check if the user already exists
-        const [existingUser] = await db.execute('SELECT email FROM patients WHERE email = ?', [email]);
+        const [existingUser] = await db.execute('SELECT email FROM Patients WHERE email = ?', [email]);
         if(existingUser.length>0){
            return res.status(400).json({message: 'User already exists!'})
         }
@@ -22,7 +22,7 @@ exports.registerUser = async (req, res)=>{
         const hashedPassword = await bcrypt.hash(password, 12);
 
         // Insert a new user into the database
-        await db.execute('INSERT INTO patients (first_name, last_name, email, password_hash, phone, date_of_birth, gender, address) VALUES (?, ?, ?, ?, ?, ?, ?, ?)', [firstName, lastName, email, hashedPassword, phone, dateOfBirth, gender, address]);
+        await db.execute('INSERT INTO Patients (first_name, last_name, email, password_hash, phone, date_of_birth, gender, address) VALUES (?, ?, ?, ?, ?, ?, ?, ?)', [firstName, lastName, email, hashedPassword, phone, dateOfBirth, gender, address]);
         
         res.status(201).json({message: 'User registered successfully!'});
 
@@ -43,7 +43,7 @@ exports.loginUser = async (req, res) => {
 
       if (identifier.includes('@')) {
           // If identifier contains '@', treat it as an email (patient login)
-          const [patient] = await db.execute('SELECT * FROM patients WHERE email = ?', [identifier]);
+          const [patient] = await db.execute('SELECT * FROM Patients WHERE email = ?', [identifier]);
           if (patient.length === 0) {
               return res.status(401).json({ message: 'Invalid email or password.' });
           }
@@ -118,7 +118,7 @@ exports.viewProfile = async (req, res) => {
 
     // Retrieve user details from the database
     const [user] = await db.execute(
-      'SELECT first_name, last_name, email, phone, date_of_birth, gender, address FROM patients WHERE id = ?',
+      'SELECT first_name, last_name, email, phone, date_of_birth, gender, address FROM Patients WHERE id = ?',
       [req.session.userId]
     );
 
@@ -153,7 +153,7 @@ exports.updateProfile = async (req, res) => {
 
     // Update user profile in the database
     await db.execute(
-      'UPDATE patients SET first_name = ?, last_name = ?, phone = ?, date_of_birth = ?, gender = ?, address = ? WHERE id = ?',
+      'UPDATE Patients SET first_name = ?, last_name = ?, phone = ?, date_of_birth = ?, gender = ?, address = ? WHERE id = ?',
       [firstName, lastName, phone, dateOfBirth, gender, address, req.session.userId]
     );
 
@@ -169,7 +169,7 @@ exports.deleteAccount = async (req, res)=>{
     try{
     const userId = req.session.userId;
     // Delete user account from the database
-    await db.execute('DELETE FROM patients WHERE id = ?', [userId]);
+    await db.execute('DELETE FROM Patients WHERE id = ?', [userId]);
 
     // Destroy the session
     req.session.destroy((error)=>{
@@ -227,7 +227,7 @@ exports.listPatients = async (req, res)=>{
         }
 
         // Fetch all patients from the database
-        const [patients] = await db.execute('SELECT * FROM patients');
+        const [patients] = await db.execute('SELECT * FROM Patients');
         res.status(200).json(patients);
 
     } catch(error){
@@ -247,14 +247,14 @@ exports.addDoctor = async (req, res)=>{
         const { firstName, lastName, specialization, email, phone, schedule } = req.body;
 
         // Check if the doctor already exists
-        const [existingDoctor] = await db.execute('SELECT email FROM doctors WHERE email=?', [email]);
+        const [existingDoctor] = await db.execute('SELECT email FROM Doctors WHERE email=?', [email]);
 
         if(existingDoctor.length > 0){
             return res.status(400).json({message: 'Doctor already exists!'})
         }
 
         // insert new doctor into database
-        await db.execute('INSERT INTO doctors (first_name, last_name, specialization, email, phone, schedule) VALUES (?, ?, ?, ?, ?, ?)', [firstName, lastName, specialization, email, phone, JSON.stringify(schedule)]);
+        await db.execute('INSERT INTO Doctors (first_name, last_name, specialization, email, phone, schedule) VALUES (?, ?, ?, ?, ?, ?)', [firstName, lastName, specialization, email, phone, JSON.stringify(schedule)]);
         res.status(201).json({message: 'Doctor successfully added.'});
 
     } catch(error){
@@ -267,7 +267,7 @@ exports.addDoctor = async (req, res)=>{
 exports.listDoctors = async (req, res)=>{
     try{
         // fetch all doctors from the database
-        const [doctors] = await db.execute('SELECT * FROM doctors');
+        const [doctors] = await db.execute('SELECT * FROM Doctors');
         res.status(200).json(doctors);
     } catch(error){
         console.error('Error fetching doctors', error);
@@ -287,7 +287,7 @@ exports.updateDoctor = async (req, res) => {
   
       // Update doctor profile in the database
       await db.execute(
-        'UPDATE doctors SET first_name = ?, last_name = ?, specialization = ?, email=?, phone = ?, schedule = ? WHERE id = ?',
+        'UPDATE Doctors SET first_name = ?, last_name = ?, specialization = ?, email=?, phone = ?, schedule = ? WHERE id = ?',
         [firstName, lastName, specialization, email, phone, JSON.stringify(schedule), doctorId]
       );
   
@@ -309,7 +309,7 @@ exports.updateDoctor = async (req, res) => {
       const { doctorId } = req.body;
   
       // Delete doctor profile from the database
-      await db.execute('DELETE FROM doctors WHERE id = ?', [doctorId]);
+      await db.execute('DELETE FROM Doctors WHERE id = ?', [doctorId]);
   
       res.status(204).json({ message: 'Doctor profile deleted successfully' });
     } catch (error) {
@@ -326,7 +326,7 @@ exports.updateDoctor = async (req, res) => {
   
       // Insert new appointment into the database
       await db.execute(
-        'INSERT INTO appointments (patient_id, doctor_id, appointment_date, appointment_time, appointment_status) VALUES (?, ?, ?, ?, ?)',
+        'INSERT INTO Appointments (patient_id, doctor_id, appointment_date, appointment_time, appointment_status) VALUES (?, ?, ?, ?, ?)',
         [patientId, doctorId, appointmentDate, appointmentTime, 'scheduled']
       );
   
@@ -352,13 +352,13 @@ exports.listAppointments = async (req, res) => {
 
     // Set up query and parameters based on user role
     if (userRole === 'patient') {
-      query = 'SELECT * FROM appointments WHERE patient_id = ?';
+      query = 'SELECT * FROM Appointments WHERE patient_id = ?';
       params = [userId];
     } else if (userRole === 'doctor') {
-      query = 'SELECT * FROM appointments WHERE doctor_id = ?';
+      query = 'SELECT * FROM Appointments WHERE doctor_id = ?';
       params = [userId];
     } else if (userRole === 'admin') {
-      query = 'SELECT * FROM appointments'; // Admins can view all appointments
+      query = 'SELECT * FROM Appointments'; // Admins can view all appointments
     } else {
       return res.status(403).json({ message: 'Access denied' });
     }
@@ -392,7 +392,7 @@ exports.listAppointments = async (req, res) => {
   
       // Update appointment in the database
       if (status) {
-        await db.execute('UPDATE appointments SET appointment_status = ? WHERE appointment_id = ?', [status, appointmentId]);
+        await db.execute('UPDATE Appointments SET appointment_status = ? WHERE appointment_id = ?', [status, appointmentId]);
       } else {
         await db.execute(
           'UPDATE appointments SET appointment_date = ?, appointment_time = ? WHERE appointment_id = ?',
@@ -415,7 +415,7 @@ exports.listAppointments = async (req, res) => {
       const userRole = req.session.userRole;
   
       // Check if the appointment belongs to the user
-      const [appointment] = await db.execute('SELECT * FROM appointments WHERE appointment_id = ?', [appointmentId]);
+      const [appointment] = await db.execute('SELECT * FROM Appointments WHERE appointment_id = ?', [appointmentId]);
       if (appointment.length === 0) {
         return res.status(404).json({ message: 'Appointment not found' });
       }
@@ -425,7 +425,7 @@ exports.listAppointments = async (req, res) => {
       }
   
       // Update appointment status to 'canceled'
-      await db.execute('UPDATE appointments SET appointment_status = ? WHERE appointment_id = ?', ['canceled', appointmentId]);
+      await db.execute('UPDATE Appointments SET appointment_status = ? WHERE appointment_id = ?', ['canceled', appointmentId]);
   
       res.status(200).json({ message: 'Appointment canceled successfully' });
     } catch (error) {
